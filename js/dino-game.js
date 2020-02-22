@@ -569,9 +569,17 @@ const gameController = function(){
         if(e.keyCode === 32){   
             canvasSetups.roadSpeed = canvasSetups.roadStartSpeed;
             e.preventDefault();
-
+            
             document.removeEventListener('keydown', gameStart);
+            document.removeEventListener('touchstart', gameStartTouch);
         }  
+    };
+
+    const gameStartTouch = function(){
+            canvasSetups.roadSpeed = canvasSetups.roadStartSpeed;
+
+            document.removeEventListener('touchstart', gameStartTouch);
+            document.removeEventListener('keydown', gameStart);  
     };
 
     // Initialize Road speed and Items
@@ -589,6 +597,7 @@ const gameController = function(){
    
     // Listen for start Event
     document.addEventListener('keydown', gameStart);
+    document.addEventListener('touchstart', gameStartTouch);
 };
 
 gameController();
