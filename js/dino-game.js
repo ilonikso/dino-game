@@ -411,7 +411,11 @@ Collision.prototype.gameOver = function(sound){
     
     // Show Game Over button
     let startButton = document.querySelector('.game__start');
-    startButton.style.visibility = 'visible';
+    startButton.style.top = canvas.getBoundingClientRect().height / 2 - 25 + 147 + 'px';
+    setTimeout(() => {
+        startButton.style.visibility = 'visible';    
+    }, 10);
+    
     
     // New game start 'Game over' button
     startButton.addEventListener('click', function(){
